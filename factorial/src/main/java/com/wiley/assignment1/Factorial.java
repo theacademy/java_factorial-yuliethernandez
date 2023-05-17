@@ -2,6 +2,7 @@ package com.wiley.assignment1;
 
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -34,8 +35,22 @@ public class Factorial {
 		*/
 
 		//YOUR CODE STARTS HERE
-
-		return -1;
+                try{
+                    
+                    int num = scanner.nextInt();
+                    if(num>0 && num<=10){
+                        return num;
+                    }
+                    this.printStream.print("Please Enter valid Input as number between 1 and 10 only, both inclusive");            
+                    return -1;    
+                    
+                }
+                catch(InputMismatchException ex){
+                    this.printStream.print("Please Enter valid Input as number between 1 and 10 only, both inclusive"); 
+                    
+                } 
+                
+                return -1;              
 
 		//YOUR CODE ENDS HERE
 		 
@@ -53,8 +68,10 @@ public class Factorial {
 		 
 		int result = 1;
 		//YOUR CODE STARTS HERE
-
- 
+                      
+                for(int i = num; i>0; i--){
+                    result *= i;
+                } 
 
 		//YOUR CODE ENDS HERE
 		this.printStream.print("The Factorial is: " + result);		
